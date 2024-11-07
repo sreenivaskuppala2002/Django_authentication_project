@@ -38,8 +38,11 @@ def register(request):
             messages.success(request,'your account has been created please login!')
             return redirect('home')
         else:
-            messages.success(request,'credentials did not match please try again!')
-            return redirect('register')
+            context={
+            'form':form
+            }
+            return render(request,'register.html',context)
+    
         
     else:
         context={

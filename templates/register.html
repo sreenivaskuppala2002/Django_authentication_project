@@ -9,13 +9,15 @@
 {% endblock %}
 
 {% block msg %}
-{% if messages %}
-{% for msg in messages %}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{msg}}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-{% endfor %}
+{% if form.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {% for field in form %}
+            {% if field.errors %}
+            {{ field.errors }}
+            {% endif %}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
 {% endif %}
 {% endblock %}
 
