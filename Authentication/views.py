@@ -38,7 +38,7 @@ def register(request):
             messages.success(request,'your account has been created please login!')
             return redirect('home')
         else:
-            messages.success(request,' Provide correct details please try again!')
+            messages.success(request,'credentials did not match please try again!')
             return redirect('register')
         
     else:
